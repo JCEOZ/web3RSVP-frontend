@@ -5,14 +5,18 @@ import { getDefaultWallets, RainbowKitProvider } from "@rainbow-me/rainbowkit";
 import { chain, configureChains, createClient, WagmiConfig } from "wagmi";
 import { infuraProvider } from "wagmi/providers/infura";
 import { publicProvider } from "wagmi/providers/public";
+import { ApolloProvider } from "@apollo/client";
+import client from "../apollo-client";
 
 export default function MyApp({ Component, pageProps }) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider chains={chains}>
-      <Layout>
-        <Component {...pageProps} />
-      </Layout>
+        <ApolloProvider client={client}>
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
+        </ApolloProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   );
