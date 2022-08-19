@@ -1,5 +1,5 @@
 import { Web3Storage, File, getFilesFromPath } from "web3.storage";
-const { resolve } = reqire("path");
+const { resolve } = require("path");
 
 export default async function handler(req, res) {
     if (req.method === "POST") {
